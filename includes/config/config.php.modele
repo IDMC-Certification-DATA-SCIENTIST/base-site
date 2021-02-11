@@ -1,0 +1,10 @@
+<?php
+/*
+    Dupliquez ce fichier et renommez le en config.php
+    Puis vérifiez les valeurs ci-dessous pour qu'elles 
+    correspondent aux coordonnées de votre base de donnée
+*/
+define('DB_HOST','localhost');
+define('DB_USER','root');
+define('DB_PASS','');
+define('DB_NAME','comouv');
