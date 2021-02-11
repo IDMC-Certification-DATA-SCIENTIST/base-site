@@ -4,7 +4,8 @@
     Puis vérifiez les valeurs ci-dessous pour qu'elles 
     correspondent aux coordonnées de votre base de donnée
 */
+define('NOM_SITE','Un super site en PHP');
 define('DB_HOST','localhost');
 define('DB_USER','root');
 define('DB_PASS','');
-define('DB_NAME','comouv');
+define('DB_NAME','nom_base');
