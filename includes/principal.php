@@ -30,4 +30,4 @@ if(file_exists($config)) {
 /*
 	Connexion à la base de données
 */
-$db = db_connecter();
+db_connect();

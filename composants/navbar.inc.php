@@ -1,7 +1,7 @@
-<nav class="navbar is-dark" role="navigation" aria-label="main navigation">
+<nav class="navbar is-light" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a class="navbar-item" href="index.php">
-      <b><?php echo NOM_SITE;?></b>
+      <b><?php echo FAVICON_SITE;?> <?php echo NOM_SITE;?></b>
     </a>
   </div>
 
@@ -9,15 +9,15 @@
   <a class="navbar-item" href="index.php">
       Accueil
     </a>
-    <a class="navbar-item" href="page.php">
-      Une autre page
+    <a class="navbar-item" href="beatles.php">
+      Les beatles
     </a>
   </div>
 
   <div class="navbar-end">
     <div class="navbar-item">
       <div class="buttons">
-        <a href="https//google.com" class="button is-primary">
+        <a href="https://google.com" class="button is-primary">
           <strong>Chercher sur Google</strong>
         </a>
       </div>
