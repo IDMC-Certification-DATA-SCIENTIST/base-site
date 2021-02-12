@@ -1,4 +1,8 @@
 <?php
+/**
+ * Fonctions utilisées pour interroger la base de données
+ */
+
 
 /**
  * Se connecter a ka base de données
@@ -50,6 +54,30 @@ function db_selectOne($query) {
 
 }
 
+/**
+ * Envoyer une requète SQL INSERT INTO à la base de données
+ *
+ * @param  mixed $query La requète SQL 'INSERT INTO ...'
+ * @return int L'identifiant numérique de l'élément créé
+ */
+function db_insert($query) {
+    $GLOBALS['db']->query($query);
+    db_error($query);
+    return $GLOBALS['db']->insert_id;
+}
+
+
+/**
+ * Envoyer une requète SQL à la base de données (sans données retournées)
+ *
+ * @param  mixed $query La requète SQL (UPDATE, INSERT INTO, DELETE)
+ * @return void
+ */
+function db_query($query) {
+    $GLOBALS['db']->query($query);
+    db_error($query);
+}
+
 
 /**
  * Afficher une erreur de base de données
@@ -58,7 +86,9 @@ function db_selectOne($query) {
  * @return void
  */
 function db_error($query) {
-    message('Erreur SQL','<code>'.$query.'</code><br><br>'.$GLOBALS['db']->error, 'erreur');    
+    if($GLOBALS['db']->error) {
+        message('Erreur SQL','<code>'.$query.'</code><br><br>'.$GLOBALS['db']->error, 'erreur');
+    }
 }
 
 
