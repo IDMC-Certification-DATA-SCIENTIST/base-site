@@ -1,17 +1,20 @@
-<?php include 'includes/principal.php'; ?>
+<?php include 'includes/principal.php'; 
 
-<?php headerSite(); ?>
+$beatles = db_selectAll('SELECT * FROM beatles ORDER BY ordre ASC');
+
+$id = rand(1, 4);
+$unBeatleAuHasard = db_selectOne('SELECT * FROM beatles WHERE id = "' . db_esc($id) . '"');
+
+headerSite(); ?>
 
 <body>
     <section class="section">
         <div class="container">
             <div class="columns">
                 <div class="column">
+
                     <h1 class="title">Les Beatles</h1>
                     <h2 class="subtitle">Les membres du groupe</h2>
-                    <?php
-                    $beatles = db_selectAll('SELECT * FROM beatles ORDER BY ordre ASC');
-                    ?>
 
                     <?php foreach ($beatles as $beatle) { ?>
 
@@ -37,24 +40,20 @@
 
                     <h2 class="title">Un Beatle au hasard</h3>
                     <h3 class="subtitle">Recharger la page pour changer</h3>
-                    <?php
-                    $id = rand(1, 4);
-                    $beatleAuHasard = db_selectOne('SELECT * FROM beatles WHERE id = "' . db_esc($id) . '"');
-                    ?>
 
                     <div class="card">
                         <div class="card-image">
                             <figure class="image">
-                                <img src="<?php echo $beatleAuHasard['photo']; ?>" alt="Image">
+                                <img src="<?php echo $unBeatleAuHasard['photo']; ?>" alt="Image">
                             </figure>
                         </div>
                         <div class="card-content">
                             <div class="content">
                                 <h3 class="subtitle">
-                                    <?php echo $beatleAuHasard['prenom']; ?>
+                                    <?php echo $unBeatleAuHasard['prenom']; ?>
                                 </h3>
                                 <h2 class="title">
-                                    <?php echo $beatleAuHasard['nom']; ?>
+                                    <?php echo $unBeatleAuHasard['nom']; ?>
                                 </h2>
 
                             </div>

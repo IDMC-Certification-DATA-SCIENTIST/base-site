@@ -10,7 +10,7 @@
       Accueil
     </a>
     <a class="navbar-item" href="beatles.php">
-      Les beatles
+      Les Beatles
     </a>
   </div>
 
