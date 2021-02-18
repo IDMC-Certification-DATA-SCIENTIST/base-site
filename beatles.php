@@ -3,6 +3,7 @@
 $beatles = beatles_getAll();
 
 $unBeatleAuHasard = beatles_getOneRandom();
+
 headerSite(); ?>
 
 <div class="columns">
@@ -14,13 +15,13 @@ headerSite(); ?>
         <?php foreach ($beatles as $beatle) { ?>
             <?php include './composants/ligne-beatle.composant.php'; ?>
         <?php } ?>
+
     </div>
     <div class="column is-one-quarter">
 
         <h2 class="title">Un Beatle au hasard</h3>
-            <h3 class="subtitle">Recharger la page pour changer</h3>
-
-            <?php include './composants/carte-beatle.composant.php'; ?>
+        <h3 class="subtitle">Recharger la page pour changer</h3>
+        <?php include './composants/carte-beatle.composant.php'; ?>
 
 
     </div>
