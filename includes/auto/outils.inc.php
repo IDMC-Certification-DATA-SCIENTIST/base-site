@@ -45,7 +45,9 @@ function footerSite()
  */
 function favicon()
 {
-	echo '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>' . FAVICON_SITE . '</text></svg>">';
+	if (defined('FAVICON_SITE')) {
+		echo '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>' . FAVICON_SITE . '</text></svg>">';
+	}
 }
 
 
@@ -68,10 +70,12 @@ function debug()
 		$line = $trace['line'];
 		$files[] = '<p><small>' . $file . ' (ligne ' . $line . ')</small></p>';
 	}
-	echo '<div style="font-family:monospace;">';
-	echo implode('', $files) . '<pre style="background:#ccc;padding:1em;">';
-	echo htmlspecialchars(print_r(func_get_args(), true));
-	echo '</pre>';
-	echo '</div>';
+	foreach (func_get_args() as $arg) {
+		echo '<div style="font-family:monospace;">';
+		echo implode('', $files) . '<pre style="background:#ccc;padding:1em;">';
+		echo htmlspecialchars(print_r($arg, true));
+		echo '</pre>';
+		echo '</div>';
+	}
 	exit;
 }
