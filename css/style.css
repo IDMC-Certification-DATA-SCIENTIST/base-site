@@ -1,3 +1,35 @@
 .navbar {
     border-top: 5px solid #333333;
 }
+
+@media screen and (min-width: 600px) {
+    .trajet {
+        position: relative;
+        background: transparent;
+    }
+    .trajet .photo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 30%;
+        height: 100%;
+        z-index: -1;
+    }
+    .trajet .photo img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .trajet .photo:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 7%, rgba(255, 255, 255, 0.01) 99%, rgba(255, 255, 255, 0) 100%);
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    }
+}

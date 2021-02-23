@@ -7,8 +7,9 @@
  * @param  mixed $destination Url de la page (absolute : https://google.com ou relative : /dossier/page.html)
  * @return void
  */
-function redirection($destination) {
-	header('Location: '.$destination);
+function redirection($destination)
+{
+	header('Location: ' . $destination);
 	exit;
 }
 
@@ -19,8 +20,9 @@ function redirection($destination) {
  * @param  mixed $navbar Afficher la navbar [Par défaut: true]
  * @return void
  */
-function headerSite($titre=false,$navbar=true) {
-	include RACINE.'layout/header.inc.php';
+function headerSite($titre = false, $navbar = true)
+{
+	include RACINE . 'layout/header.inc.php';
 }
 
 /**
@@ -28,8 +30,9 @@ function headerSite($titre=false,$navbar=true) {
  *
  * @return void
  */
-function footerSite() {
-	include RACINE.'layout/footer.inc.php';
+function footerSite()
+{
+	include RACINE . 'layout/footer.inc.php';
 	exit;
 }
 
@@ -40,8 +43,9 @@ function footerSite() {
  *
  * @return void
  */
-function favicon() {
-	echo '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>'.FAVICON_SITE.'</text></svg>">';	
+function favicon()
+{
+	echo '<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>' . FAVICON_SITE . '</text></svg>">';
 }
 
 
@@ -55,17 +59,18 @@ function favicon() {
  * ...
  * @return void
  */
-function debug() {
+function debug()
+{
 	$traces = debug_backtrace();
 	$files = [];
-	foreach($traces as $cpt => $trace) {
-		$file = str_replace(RACINE,'',$trace['file']);
+	foreach ($traces as $cpt => $trace) {
+		$file = str_replace(RACINE, '', $trace['file']);
 		$line = $trace['line'];
-		$files[] = '<p><small>'.$file.' (ligne '.$line.')</small></p>';
+		$files[] = '<p><small>' . $file . ' (ligne ' . $line . ')</small></p>';
 	}
 	echo '<div style="font-family:monospace;">';
-	echo implode('',$files).'<pre style="background:#ccc;padding:1em;">';
-	echo htmlspecialchars(print_r(func_get_args(),true));
+	echo implode('', $files) . '<pre style="background:#ccc;padding:1em;">';
+	echo htmlspecialchars(print_r(func_get_args(), true));
 	echo '</pre>';
 	echo '</div>';
 	exit;
